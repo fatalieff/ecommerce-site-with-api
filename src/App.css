@@ -1,0 +1,129 @@
+.container {
+  max-width: 1200px;
+  padding: 20px 70px;
+  background-color: #f9f5ff;
+}
+
+.inter-f {
+  font-family: "Inter", sans-serif;
+}
+.w-400 {
+  font-weight: 400;
+}
+.w-600 {
+  font-weight: 600;
+}
+.w-500 {
+  font-weight: 500;
+}
+.header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.header-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  small {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0px;
+    color: #6941c6;
+    vertical-align: sub;
+    margin-left: 10px;
+  }
+  span {
+    color: #42307d;
+    font-size: 48px;
+    letter-spacing: -2%;
+    line-height: 60px;
+  }
+  p {
+    color: #6941c6;
+    font-size: 20px;
+  }
+}
+.our-blog-overlay {
+  border-radius: 16px;
+  background-color: #f9f5ff;
+  width: 82px;
+  height: 28px;
+  padding: 4px 12px;
+}
+.header {
+  input {
+    width: 270px;
+    height: 37px;
+    border-radius: 10px;
+    border: 1px solid #d0d5dd;
+    padding: 2px 16px;
+    outline: none;
+  }
+}
+.boxs {
+  display: flex;
+  gap: 50px 30px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  .box {
+    background-color: #fff;
+    border: 1px solid #e0e0e0; /* açıq boz xətt */
+    border-radius: 12px; /* yumşaq künclər */
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* incə kölgə */
+    transition: all 0.2s ease;
+    width: 335px;
+    height: 580px;
+    .image-container {
+      width: auto;
+      height: 240px;
+      margin: auto;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+      }
+    }
+    .box-text-container {
+      margin-top: 30px;
+      gap: 15px;
+      display: flex;
+      flex-direction: column;
+      small {
+        color: #6941c6;
+        font-size: 14px;
+        line-height: 20px;
+      }
+      span {
+        color: #101828;
+        font-size: 24px;
+        line-height: 32px;
+        img {
+          margin-left: 10px;
+        }
+      }
+      p {
+        color: Gray;
+        line-height: 24px;
+        font-size: 16px;
+      }
+    }
+    .price-container {
+      span {
+        font-size: 32px;
+        color: green;
+      }
+    }
+  }
+  .box:hover {
+    border-color: transparent;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.25);
+    transform: scale(0.98); /* bir az kiçilir, içə batır kimi görünür */
+  }
+  .box:not(:hover) {
+    transition: all 0.3s ease-in-out;
+  }
+}
