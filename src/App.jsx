@@ -1,5 +1,6 @@
 import "./App.css";
 import wrapImg from "./assets/Icon wrap.png";
+import Wrappage from "./assets/pages/wrap-page";
 import axios, { Axios } from "axios";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
@@ -32,7 +33,56 @@ function App() {
       <BrowserRouter>
         <div className="header">
           <div className="header-text-container">
-            {loading && <span className="f-400 inter-f">Loading...</span>}
+            {loading && (
+              <svg class="pl" width="240" height="240" viewBox="0 0 240 240">
+                <circle
+                  class="pl__ring pl__ring--a"
+                  cx="120"
+                  cy="120"
+                  r="105"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="20"
+                  stroke-dasharray="0 660"
+                  stroke-dashoffset="-330"
+                  stroke-linecap="round"
+                ></circle>
+                <circle
+                  class="pl__ring pl__ring--b"
+                  cx="120"
+                  cy="120"
+                  r="35"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="20"
+                  stroke-dasharray="0 220"
+                  stroke-dashoffset="-110"
+                  stroke-linecap="round"
+                ></circle>
+                <circle
+                  class="pl__ring pl__ring--c"
+                  cx="85"
+                  cy="120"
+                  r="70"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="20"
+                  stroke-dasharray="0 440"
+                  stroke-linecap="round"
+                ></circle>
+                <circle
+                  class="pl__ring pl__ring--d"
+                  cx="155"
+                  cy="120"
+                  r="70"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="20"
+                  stroke-dasharray="0 440"
+                  stroke-linecap="round"
+                ></circle>
+              </svg>
+            )}
             <div className="our-blog-overlay">
               <small className="inter-f w-500">Our blog</small>
             </div>
@@ -62,7 +112,7 @@ function App() {
                   <small className="w-600 inter-f">{data.category}</small>
                   <span className="inter-f w-600">
                     {data.title.slice(0, 50)}
-                    <Link>
+                    <Link style={{cursor:`default`}} to={"/wrap"}>
                       <img src={wrapImg} alt="" />
                     </Link>
                   </span>
@@ -76,6 +126,9 @@ function App() {
               </div>
             ))}
         </div>
+        <Routes>
+          <Route path="/wrap" element={<Wrappage/>}/>
+        </Routes>
       </BrowserRouter>
     </div>
   );
