@@ -15,6 +15,7 @@ function Navbar({ showSearch = true }) {
   } = useApp();
 
   const isActive = (path) => location.pathname === path;
+  const showSearchBar = showSearch && location.pathname === "/";
 
   return (
     <header className="navbar">
@@ -26,8 +27,8 @@ function Navbar({ showSearch = true }) {
         </div>
       </Link>
 
-      <div className="navbar-actions">
-        {showSearch && location.pathname === "/" && (
+      {showSearchBar && (
+        <div className="navbar-search">
           <div className="search-wrapper">
             <svg className="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.5" />
@@ -41,8 +42,10 @@ function Navbar({ showSearch = true }) {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-        )}
+        </div>
+      )}
 
+      <div className="navbar-icons">
         <button type="button" className="icon-btn" onClick={toggleTheme} aria-label="Toggle theme">
           {theme === "dark" ? (
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -64,14 +67,14 @@ function Navbar({ showSearch = true }) {
         </Link>
 
         {user ? (
-          <div className="user-menu">
+          <>
             <span className="user-greeting">Hi, {user.username}</span>
             <button type="button" className="icon-btn" onClick={logout} aria-label="Logout">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" />
               </svg>
             </button>
-          </div>
+          </>
         ) : (
           <Link to="/login" className={`icon-btn ${isActive("/login") ? "icon-btn--active" : ""}`} aria-label="Login">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
