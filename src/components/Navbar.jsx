@@ -19,16 +19,18 @@ function Navbar({ showSearch = true }) {
 
   return (
     <header className="navbar">
-      <Link to="/" className="navbar-brand">
-        <img className="brand-logo" src="/logo.svg" alt="Ecommerce Site logo" />
-        <div className="brand-text">
-          <h1>Ecommerce Site</h1>
-          <span className="brand-tagline">Premium Collection</span>
-        </div>
-      </Link>
+      <div className="navbar-left">
+        <Link to="/" className="navbar-brand">
+          <img className="brand-logo" src="/logo.svg" alt="Ecommerce Site logo" />
+          <div className="brand-text">
+            <h1>Ecommerce Site</h1>
+            <span className="brand-tagline">Premium Collection</span>
+          </div>
+        </Link>
+      </div>
 
       {showSearchBar && (
-        <div className="navbar-search">
+        <div className="navbar-center">
           <div className="search-wrapper">
             <svg className="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.5" />
@@ -45,7 +47,7 @@ function Navbar({ showSearch = true }) {
         </div>
       )}
 
-      <div className="navbar-icons">
+      <div className="navbar-right">
         <button type="button" className="icon-btn" onClick={toggleTheme} aria-label="Toggle theme">
           {theme === "dark" ? (
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
